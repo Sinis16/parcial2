@@ -14,7 +14,7 @@ export class ClubSocioService {
         @InjectRepository(SocioEntity)
         private readonly socioRepository: Repository<SocioEntity>
     ) {}
- 
+
     async addMemberToClub(clubId: string, socioId: string): Promise<ClubEntity> {
         const socio: SocioEntity = await this.socioRepository.findOne({where: {id: socioId}});
         if (!socio)
