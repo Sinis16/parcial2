@@ -1,0 +1,387 @@
+{
+	"info": {
+		"_postman_id": "97ba9b2e-8161-4e2e-86e1-16b469dfebbe",
+		"name": "socioCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23040020"
+	},
+	"item": [
+		{
+			"name": "CrearSocioValido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"club_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"John\",\r\n    \"fechaNacimiento\": \"12/12/2002\",\r\n    \"correo\": \"c.orreo@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/socios/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"socios",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearSocioInvalido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"club_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": 9,\r\n    \"fechaNacimiento\": \"k\",\r\n    \"correo\": \"c.orreo@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/socios/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"socios",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenerClubes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of socios > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/socios/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"socios",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenerSocio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"}); "
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/socios/{socio_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"socios",
+						"{socio_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenerSocioInvalido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"}); "
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/socios/0000000-000000000-00000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"socios",
+						"0000000-000000000-00000000000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizarSocio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"J o h n\",\r\n    \"fechaNacimiento\": \"12/12/2002\",\r\n    \"correo\": \"c.orreo@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/socios/{socio_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"socios",
+						"{socio_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizarSocioInvalido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The socio with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"LAS Aguilas\",\r\n    \"fechaFundacion\": \"12/12/2002\",\r\n    \"imagen\": \"urlImagen\",\r\n    \"descripcion\": \"Elegante\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/socios/000000-000000-000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"socios",
+						"000000-000000-000000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "borrarSocio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/socios/{socio_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"socios",
+						"{socio_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "borrarSocioInvalido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The socio with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/socios/00000-00000-00000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"socios",
+						"00000-00000-00000"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": " http://localhost:3000/api/v1"
+		},
+		{
+			"key": "socio_id",
+			"value": "1"
+		}
+	]
+}

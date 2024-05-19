@@ -40,7 +40,7 @@ describe('ClubSocioService', () => {
     club = await clubRepository.save({
       nombre: faker.company.name(),
       fechaFundacion: faker.date.anytime(), 
-      imagen: faker.image.image(),
+      imagen: faker.image.url(),
       descripcion: faker.lorem.sentence(),
       socios: sociosList
     })
@@ -56,7 +56,7 @@ describe('ClubSocioService', () => {
     const newClub: ClubEntity = await clubRepository.save({
       nombre: faker.company.name(),
       fechaFundacion: faker.date.anytime(), 
-      imagen: faker.image.image(),
+      imagen: faker.image.url(),
       descripcion: faker.lorem.sentence(),
     })
  
@@ -73,7 +73,7 @@ describe('ClubSocioService', () => {
     const newClub: ClubEntity = await clubRepository.save({
       nombre: faker.company.name(),
       fechaFundacion: faker.date.anytime(), 
-      imagen: faker.image.image(),
+      imagen: faker.image.url(),
       descripcion: faker.lorem.sentence(),
     })
  
@@ -83,7 +83,7 @@ describe('ClubSocioService', () => {
     const newClub: ClubEntity = await clubRepository.save({
       nombre: faker.company.name(),
       fechaFundacion: faker.date.anytime(), 
-      imagen: faker.image.image(),
+      imagen: faker.image.url(),
       descripcion: faker.lorem.sentence(),
     })
  

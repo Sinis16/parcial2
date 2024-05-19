@@ -31,7 +31,7 @@ describe('ClubService', () => {
         const club: ClubEntity = await repository.save({
           nombre: faker.company.name(),
           fechaFundacion: faker.date.anytime(), 
-          imagen: faker.image.image(),
+          imagen: faker.image.url(),
           descripcion: faker.lorem.sentence()})
         clubList.push(club);
     }
@@ -60,7 +60,7 @@ describe('ClubService', () => {
       id: "",
       nombre: faker.company.name(),
           fechaFundacion: faker.date.anytime(), 
-          imagen: faker.image.image(),
+          imagen: faker.image.url(),
           descripcion: faker.lorem.sentence(),
       socios: []
     }

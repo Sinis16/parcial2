@@ -24,7 +24,7 @@ export class ClubService {
     }
 
     async findOne(id: string): Promise<ClubEntity> {
-        const club: ClubEntity = await this.clubRepository.findOne({where: {id}, relations: ["artworks", "exhibitions"] } );
+        const club: ClubEntity = await this.clubRepository.findOne({where: {id}, relations: ["clubes"] } );
         if (!club)
           throw new BusinessLogicException("The club with the given id was not found", BusinessError.NOT_FOUND);
    
